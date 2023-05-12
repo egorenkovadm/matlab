@@ -1,0 +1,23 @@
+size = 110;
+m = rand(size, size);
+sum_diag = sum(diag(m)); %сумма элементов главной диагонали
+
+ii = 1:size+1:size*size; %главная диагональ
+jj = size:size-1:(size*size-1); %побочная диагональ
+sum_side_diag = sum(m(jj)); %сумма элементов побочной диагонали
+
+m2 = m;
+m2(ii) = m(jj); %матрица с главной диагональю, замененной на побочную
+
+det_1 = det(m);
+det_m = zeros(11);
+for k = 1:11
+    for n = 1:11
+        det_m(k,n) = det(m((10*k-9):(k*10),(10*n-9):(n*10)));
+    end
+end
+
+det_2 = det(det_m);
+disp(det_m);
+disp(det_1);
+disp(det_2);
