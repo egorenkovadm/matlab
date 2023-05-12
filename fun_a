@@ -1,0 +1,10 @@
+function [tr,edge] = fun_a(points)
+    tr = delaunayTriangulation(points');
+    x = points(1,:)';
+    y = points(2,:)';
+    triplot(tr,'b');
+    hold on;
+    edge = freeBoundary(tr);
+    plot(x(edge),y(edge),'r');
+    axis equal;
+end
