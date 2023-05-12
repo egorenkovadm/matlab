@@ -1,0 +1,10 @@
+%Написать скрипт построения поверхностного графика для функции 
+% I(x,y)=besselj_1(0.5*sqrt(x^2+y^2))^2/(x^2+y^2), 
+% где besselj_1 - фукция Бесселя 1 рода порядка 1 (besselj(p,x) - в MATLAB, p - порядок, x -аргумент )
+
+x = linspace(-5, 5, 100);
+y = x;
+[xx,yy] = meshgrid(x,y);
+I = besselj(1,((0.5.*(xx.^2+yy.^2).^0.5).^2));
+figure(2); hold on; grid on; 
+mesh(xx,yy,I);
