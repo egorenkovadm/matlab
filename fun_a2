@@ -1,4 +1,4 @@
-function [tr,edge] = fun_a(points)
+function [tr,edge] = fun_a2(points)
     tr = delaunayTriangulation(points');
     x = points(1,:)';
     y = points(2,:)';
