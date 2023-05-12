@@ -1,4 +1,4 @@
-function fun_c(a,b,c)
+function fun_c2(a,b,c)
     arguments
         a = [ 0 1  1]; 
         b = [1 0 1];
