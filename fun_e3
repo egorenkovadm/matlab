@@ -1,0 +1,25 @@
+function areas = fun_e3(tr, points)
+% tr - триангуляционная матрица
+% X - координаты вершин
+% areas - массив площадей элементов, связанных с каждой вершиной
+
+% вычисляем площади треугольников
+tris = points(tr,:);
+a = tris(:,2,:) - tris(:,1,:);
+b = tris(:,3,:) - tris(:,1,:);
+cross_prod = cross(a, b, 2);
+areas = 0.5 * sqrt(sum(cross_prod.^2, 2));
+
+% инициализируем массив площадей вершин
+vertex_areas = zeros(size(points,1), 1);
+
+% суммируем площади элементов, связанных с каждой вершиной
+for i = 1:size(tr, 1)
+    vertex_areas(tr(i,1)) = vertex_areas(tr(i,1)) + areas(i);
+    vertex_areas(tr(i,2)) = vertex_areas(tr(i,2)) + areas(i);
+    vertex_areas(tr(i,3)) = vertex_areas(tr(i,3)) + areas(i);
+end
+
+areas = vertex_areas;
+
+end
